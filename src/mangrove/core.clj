@@ -1,6 +1,10 @@
-(ns mangrove.core)
+(ns mangrove.core
+  (:require [mangrove.io :as io]
+            [cerebro.core :as m]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defn load-matrix
+  "Load a matrix from a CSV file."
+  [file]
+  (-> file
+      io/load-csv
+      m/matrix))
